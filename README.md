@@ -13,9 +13,9 @@ Provide actionable recommendations for retention strategies
 
 # ✅ Architecture System Architecture
 ## High-Level Architecture Diagram
-        ![alt text](<High-Level Architecture Diagram.jpg>)
+![High-Level Architecture Diagram](https://github.com/user-attachments/assets/08d74f51-3c93-4f0b-a5ff-3a7662723751)
 ## Data Flow
-        ![alt text](<Telelink (1).jpg>)
+![Telelink (1)](https://github.com/user-attachments/assets/c7e00af4-4b4e-4d7e-a232-3135a60fae93)
 
 
 # 🚀 Quick Start Guide
