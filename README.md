@@ -1,8 +1,4 @@
-📞 TeleLink Communications - Customer Analytics Platform
-
-An AI-powered customer churn prediction and lifetime value estimation system for telecommunications providers.
-
-🎯 Project Overview
+# 🎯 Project Overview
 TeleLink Communications serves over 1.2 million customers across the United States and faces three critical challenges:
  + Rising customer churn rates (14.2%)
  + Difficulty in accurate revenue forecasting
@@ -15,97 +11,23 @@ Estimate Customer Lifetime Value (CLV) for strategic planning
 Provide actionable recommendations for retention strategies
 
 
-🏗️ System Architecture
-┌─────────────────────────────────────────────────────────────────┐
-│                        USER'S BROWSER                           │
-│                   (Accesses via Web Browser)                    │
-└────────────────────────────┬────────────────────────────────────┘
-                             │
-                             │ HTTP Request
-                             ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                       AWS EC2 INSTANCE                          │
-│                        (t2.micro)                               │
-│  ┌───────────────────────────────────────────────────────────┐ │
-│  │              DOCKER CONTAINER                             │ │
-│  │                                                           │ │
-│  │  ┌─────────────────────────────────────────────────┐    │ │
-│  │  │           FASTAPI APPLICATION                   │    │ │
-│  │  │                                                 │    │ │
-│  │  │  ┌──────────────┐      ┌───────────────────┐  │    │ │
-│  │  │  │   Frontend   │      │   Backend API     │  │    │ │
-│  │  │  │              │      │                   │  │    │ │
-│  │  │  │  index.html  │◄────►│   backend.py     │  │    │ │
-│  │  │  │  (Static)    │      │   (FastAPI)      │  │    │ │
-│  │  │  └──────────────┘      └─────────┬─────────┘  │    │ │
-│  │  │                                  │            │    │ │
-│  │  │                                  ▼            │    │ │
-│  │  │                        ┌──────────────────┐  │    │ │
-│  │  │                        │   ML MODELS      │  │    │ │
-│  │  │                        │                  │  │    │ │
-│  │  │                        │ 1. Churn Model   │  │    │ │
-│  │  │                        │    (Random       │  │    │ │
-│  │  │                        │     Forest)      │  │    │ │
-│  │  │                        │                  │  │    │ │
-│  │  │                        │ 2. CLV Model     │  │    │ │
-│  │  │                        │    (Linear       │  │    │ │
-│  │  │                        │     Regression)  │  │    │ │
-│  │  │                        └──────────────────┘  │    │ │
-│  │  └─────────────────────────────────────────────┘    │ │
-│  │                                                      │ │
-│  │  Port 8000 (Internal) ──► Port 80 (External)       │ │
-│  └──────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────┘
-Data Flow
-User Input (Customer Data)
-         │
-         ▼
-   Web Browser (HTML/JS)
-         │
-         ▼
-   HTTP POST Request
-         │
-         ▼
-   FastAPI Backend
-         │
-         ├──► Validate Input (Pydantic)
-         │
-         ├──► Preprocess Data (Sklearn Pipeline)
-         │
-         ├──► Load ML Models (.pkl files)
-         │
-         ├──► Make Predictions
-         │         ├─► Churn Probability
-         │         └─► Customer Lifetime Value
-         │
-         ├──► Generate Risk Level (Low/Medium/High)
-         │
-         ├──► Create Recommendation
-         │
-         ▼
-   JSON Response
-         │
-         ▼
-   Display Results in Browser
+# ✅ Architecture System Architecture
 
-🚀 Quick Start Guide
-Prerequisites
+
+# 🚀 Quick Start Guide
+1. Prerequisites
 What You Need:
-
-✅ AWS Account (free tier works!)
-✅ Basic command line knowledge
-✅ SSH key pair for EC2
-✅ 15 minutes of your time
-
+ - AWS Account (free tier works!)
+ - Basic command line knowledge
+ - SSH key pair for EC2
 What's Included:
+ - 2 Pre-trained ML models
+ - Professional web interface
+ - Automated deployment scripts
+ - Real-time predictions
 
-+ 2 Pre-trained ML models
-+ Professional web interface
-+ Automated deployment scripts
-+ Real-time predictions
 
-
-📦 Installation
+2. Installation
 Option 1: Local Development (Testing)
 Step 1: Clone Repository
 bashgit clone https://github.com/Andres-lng/ML-DL-FINALPROJECT.git
@@ -145,102 +67,70 @@ Step 6: Access Your Application
 http://YOUR_EC2_PUBLIC_IP
 That's it! 🎉 Your application is now live!
 
-📁 Project Structure
-telelink-analytics/
-│
-├── 📄 backend.py                    # FastAPI application (Backend + Frontend server)
-├── 📄 index.html                    # Web interface (Frontend)
-├── 🤖 best_churn_model.pkl         # Trained Random Forest model
-├── 🤖 best_clv_model.pkl           # Trained Linear Regression model
-├── 📄 requirements.txt              # Python dependencies
-│
-├── 🐳 Dockerfile                    # Docker container configuration
-├── 📄 .dockerignore                 # Files to exclude from Docker
-│
-├── 🚀 setup-ec2.sh                  # EC2 initial setup script
-├── 🚀 deploy.sh                     # Deployment script
-│
-├── 📊 FinalProject_ANLT202.ipynb   # Model training notebook
-│
-└── 📖 README.md                     # This file
-
-🔧 Technology Stack
-Backend
-
-FastAPI - Modern Python web framework
-Scikit-learn - Machine learning library
-Pandas - Data manipulation
-Joblib - Model serialization
-Uvicorn - ASGI server
-
-Frontend
-
-HTML5 - Structure
-CSS3 - Styling (Responsive design)
-Vanilla JavaScript - Interactivity (No frameworks!)
-
-Machine Learning
-
-Random Forest Classifier - Churn prediction (95% accuracy)
-Linear Regression - CLV estimation (R² = 0.89)
-SMOTE - Handling imbalanced data
-StandardScaler - Feature normalization
-
-Deployment
-
-Docker - Containerization
-AWS EC2 - Cloud hosting
-Amazon Linux 2023 - Operating system
 
 
-📊 Machine Learning Models
-Model 1: Churn Prediction (Classification)
-Algorithm: Tuned Random Forest Classifier
-Performance Metrics:
+# Technology Stack
+1. Backend
+    FastAPI - Modern Python web framework
+    Scikit-learn - Machine learning library
+    Pandas - Data manipulation
+    Joblib - Model serialization
+    Uvicorn - ASGI server
 
-✅ Accuracy: 95.2%
-✅ Precision: 93.8%
-✅ Recall: 89.4%
-✅ F1-Score: 91.5%
+2. Frontend
+    HTML5 - Structure
+    CSS3 - Styling (Responsive design)
+    
+3. Machine Learning
+    Random Forest Classifier - Churn prediction (95% accuracy)
+    Linear Regression - CLV estimation (R² = 0.89)
+    SMOTE - Handling imbalanced data
+    StandardScaler - Feature normalization
 
-Features Used:
-
-Account length
-Call volumes (day/evening/night/international)
-Customer service calls
-International plan status
-Voicemail plan status
-Geographic data (state, area code)
-
-Output:
-
-Churn probability (0-100%)
-Risk level (Low/Medium/High)
-Confidence score
+4. Deployment
+    Docker - Containerization
+    AWS EC2 - Cloud hosting
+    Amazon Linux 2023 - Operating system
 
 
-Model 2: Customer Lifetime Value (Regression)
-Algorithm: Linear Regression Pipeline
-Performance Metrics:
+# 📊 Machine Learning Models
+1. Model 1: Churn Prediction (Classification)
+    Algorithm: Tuned Random Forest Classifier
+    1. Performance Metrics:
+        ✅ Accuracy: 95.2%
+        ✅ Precision: 93.8%
+        ✅ Recall: 89.4%
+        ✅ F1-Score: 91.5%
 
-✅ R² Score: 0.89
-✅ MAE: $2,450
-✅ RMSE: $3,120
+    2. Features Used:
+    Account length
+    Call volumes (day/evening/night/international)
+    Customer service calls
+    International plan status
+    Voicemail plan status
+    Geographic data (state, area code)
 
-Features Used:
+    3. Output:
 
-Account length
-Monthly charges (day/evening/night/international)
-Service plan indicators
-Usage patterns
+    Churn probability (0-100%)
+    Risk level (Low/Medium/High)
+    Confidence score
+2. Model 2: Customer Lifetime Value (Regression)
+    Algorithm: Linear Regression Pipeline
+    1. Performance Metrics:
+        ✅ R² Score: 0.89
+        ✅ MAE: $2,450
+        ✅ RMSE: $3,120
+    2. Features Used:
+        Account length
+        Monthly charges (day/evening/night/international)
+        Service plan indicators
+        Usage patterns
+    3. Output:
+        Estimated CLV in dollars
+        Revenue forecast
 
-Output:
-
-Estimated CLV in dollars
-Revenue forecast
-
-
-🎮 How to Use
+# 🎮 How to Use
 1. Access the Application
 Open your browser and navigate to:
 
@@ -279,81 +169,7 @@ Based on the risk level:
 🟢 Low Risk: Maintain regular engagement
 
 
-🎯 Use Cases
-For Customer Service Teams
-
-Identify at-risk customers before they churn
-Prioritize retention efforts based on CLV
-Personalize customer interactions
-
-For Marketing Teams
-
-Target high-value customers for upselling
-Design retention campaigns for at-risk segments
-Optimize marketing spend based on CLV
-
-For Executive Leadership
-
-Forecast revenue more accurately
-Make data-driven strategic decisions
-Track customer health metrics in real-time
-
-For Data Analytics Teams
-
-Monitor model performance
-Generate insights from prediction patterns
-Identify key churn drivers
-
-
-🔍 API Documentation
+# 🔍 API Documentation
 Once deployed, access interactive API documentation at:
 http://YOUR_IP/docs
-Main Endpoints
-1. Health Check
-httpGET /health
-Response:
-json{
-  "status": "healthy",
-  "churn_model": "loaded",
-  "clv_model": "loaded",
-  "api_version": "2.0.0"
-}
-2. Predict Customer
-httpPOST /predict
-Content-Type: application/json
-Request:
-json{
-  "accountLength": 128,
-  "state": "CA",
-  "areaCode": "415",
-  "internationalPlan": "no",
-  "voiceMailPlan": "yes",
-  "numberOfVmailMessages": 25,
-  "totalDayCalls": 110,
-  "totalEveCalls": 85,
-  "totalNightCalls": 95,
-  "totalIntlCalls": 3,
-  "customerServiceCalls": 1
-}
-Response:
-json{
-  "churn_probability": 0.23,
-  "churn_risk": "Medium",
-  "estimated_clv": 32450.50,
-  "recommendation": " PROACTIVE: Valuable customer showing warning signs...",
-  "confidence": "High"
-}
-3. Get Statistics
-httpGET /stats
-4. Batch Predictions
-httpPOST /batch-predict
 
-
-📞 Contact
-TeleLink Analytics Team
-
-<div align="center">
-Made with ❤️ for TeleLink Communications
-Empowering data-driven decisions through AI
-</div>
->>>>>>> Stashed changes
