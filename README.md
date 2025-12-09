@@ -75,8 +75,8 @@ Step 6: Access Your Application
     CSS3 - Styling (Responsive design)
     
 3. Machine Learning
-    Random Forest Classifier - Churn prediction (95% accuracy)
-    Linear Regression - CLV estimation (R² = 0.89)
+    Random Forest Classifier - Churn prediction 
+    Linear Regression - CLV estimation 
     SMOTE - Handling imbalanced data
     StandardScaler - Feature normalization
 
