@@ -19,59 +19,48 @@ Provide actionable recommendations for retention strategies
 
 
 # 🚀 Quick Start Guide
-1. Prerequisites
-What You Need:
+## 1. Prerequisites
+** What You Need: **
  - AWS Account (free tier works!)
  - Basic command line knowledge
  - SSH key pair for EC2
-What's Included:
+   
+** What's Included: **
  - 2 Pre-trained ML models
  - Professional web interface
  - Automated deployment scripts
  - Real-time predictions
 
 
-2. Installation
-Option 1: Local Development (Testing)
-Step 1: Clone Repository
-bashgit clone https://github.com/Andres-lng/ML-DL-FINALPROJECT.git
-cd ML-DL-FINALPROJECT
-Step 2: Install Dependencies
-bashpip install -r requirements.txt
-Step 3: Run Application
-bashpython backend.py
-Step 4: Access Application
+## 2. Installation
+** Option 1: Local Development (Testing) **
+### 1. Step 1: Clone Repository
+- git clone https://github.com/Andres-lng/ML-DL-FINALPROJECT.git
+- cd ML-DL-FINALPROJECT
+### Step 2: Install Dependencies
+- pip install -r requirements.txt
+### Step 3: Run Application
+- python backend.py
+### Step 4: Access Application
 Open browser: http://localhost:8000
 
-Option 2: AWS EC2 Deployment (Production Demo)
-Step 1: Launch EC2 Instance
-
-Go to AWS Console → EC2 → Launch Instance
-Configure:
-
-Name: telelink-demo
-AMI: Amazon Linux 2023
-Type: t2.micro (Free Tier)
-Key Pair: Create or select existing
-Security Group: Allow HTTP (80), HTTPS (443), SSH (22)
-
-
-Click Launch
-
-Step 2: Connect to EC2
-ssh -i your-key.pem ec2-user@YOUR_EC2_IP
-Step 3: Clone Repository
-[git clone ML-DL-FINALPROJECT](https://github.com/Andres-lng/ML-DL-FINALPROJECT.git)
-cd ML-DL-FINALPROJECT
-Step 4: Initial Setup (One-Time)
-bash setup-ec2.sh
-Step 5: Deploy Application
-bash deploy.sh
+** Option 2: AWS EC2 Deployment (Production Demo) **
+### Step 1: Launch EC2 Instance
+- Go to AWS Console → EC2 → Launch Instance
+- Configure: 1. Name: telelink-demo | 2. AMI: Amazon Linux 2023 | 3. Type: t2.micro (Free Tier) | 4. Key Pair: Create or select existing | 5.Security Group: Allow HTTP (80), HTTPS (443), SSH (22)
+- Click Launch
+### Step 2: Connect to EC2
+- ssh -i your-key.pem ec2-user@YOUR_EC2_IP
+### Step 3: Clone Repository
+- [git clone ML-DL-FINALPROJECT](https://github.com/Andres-lng/ML-DL-FINALPROJECT.git)
+- cd ML-DL-FINALPROJECT
+### Step 4: Initial Setup (One-Time)
+- bash setup-ec2.sh
+### Step 5: Deploy Application
+- bash deploy.sh
 Step 6: Access Your Application
-http://YOUR_EC2_PUBLIC_IP
-That's it! 🎉 Your application is now live!
-
-
+- http://YOUR_EC2_PUBLIC_IP
+- Your application is now live!
 
 # Technology Stack
 1. Backend
@@ -100,13 +89,8 @@ That's it! 🎉 Your application is now live!
 # 📊 Machine Learning Models
 1. Model 1: Churn Prediction (Classification)
     Algorithm: Tuned Random Forest Classifier
-    1. Performance Metrics:
-        ✅ Accuracy: 95.2%
-        ✅ Precision: 93.8%
-        ✅ Recall: 89.4%
-        ✅ F1-Score: 91.5%
-
-    2. Features Used:
+    - Performance Metrics: Accuracy: 0.867, Precision: 0.552, Recall: 0.337, F1 Score: 0.418
+    - Features Used:
     Account length
     Call volumes (day/evening/night/international)
     Customer service calls
@@ -114,33 +98,22 @@ That's it! 🎉 Your application is now live!
     Voicemail plan status
     Geographic data (state, area code)
 
-    3. Output:
-
-    Churn probability (0-100%)
-    Risk level (Low/Medium/High)
-    Confidence score
+    - Output: Churn probability (0-100%) | Risk level (Low/Medium/High) | Confidence score
 2. Model 2: Customer Lifetime Value (Regression)
     Algorithm: Linear Regression Pipeline
-    1. Performance Metrics:
-        ✅ R² Score: 0.89
-        ✅ MAE: $2,450
-        ✅ RMSE: $3,120
-    2. Features Used:
+    - Performance Metrics: MAE: 898.36, RMSE: 1108.81, R²: 0.9328
+    - Features Used:
         Account length
         Monthly charges (day/evening/night/international)
         Service plan indicators
         Usage patterns
-    3. Output:
+    - Output:
         Estimated CLV in dollars
         Revenue forecast
 
 # 🎮 How to Use
 1. Access the Application
-Open your browser and navigate to:
-
-Local: http://localhost:8000
-EC2: http://YOUR_EC2_IP
-
+Open your browser and navigate to: + Local: http://localhost:8000 | + EC2: http://www.infosecurity.homes/
 2. Enter Customer Data
 Fill in the form with customer information:
 
@@ -172,7 +145,3 @@ Based on the risk level:
 🟡 Medium Risk: Proactive engagement needed
 🟢 Low Risk: Maintain regular engagement
 
-
-# 🔍 API Documentation
-Once deployed, access interactive API documentation at:
-http://YOUR_IP/docs
