@@ -114,12 +114,13 @@ def prepare_input_data(customer: CustomerData) -> pd.DataFrame:
 
 def get_recommendation(churn_prob: float, clv: float) -> str:
     """Generate actionable recommendation based on churn risk and CLV."""
-    if churn_prob > 0.4:
+    """WE SHOULD USE "0.3" AS OUR THRESHOLD TO ALIGN WITH OUR CLASSIFICATION MODEL"""
+    if churn_prob >= 0.3:
         if clv > 30000:
             return "🚨 CRITICAL: High-value customer at severe risk. Immediate executive intervention required. Offer premium retention package."
         else:
             return "⚠️ HIGH PRIORITY: Customer likely to churn. Assign dedicated account manager and offer targeted incentives within 24 hours."
-    elif churn_prob > 0.2:
+    elif churn_prob >= 0.15:
         if clv > 30000:
             return "📞 PROACTIVE: Valuable customer showing warning signs. Schedule personal check-in call and present loyalty rewards."
         else:
@@ -131,14 +132,23 @@ def get_recommendation(churn_prob: float, clv: float) -> str:
             return "✅ MAINTAIN: Healthy customer relationship. Continue standard engagement and periodic satisfaction surveys."
 
 
+"""WE SHOULD USE "0.3" AS OUR THRESHOLD TO ALIGN WITH OUR CLASSIFICATION MODEL"""
 def get_confidence_level(churn_prob: float) -> str:
     """Determine model confidence based on prediction probability."""
+    
+    # Very High confidence: probability extremely low or extremely high
     if churn_prob < 0.1 or churn_prob > 0.9:
         return "Very High"
-    elif churn_prob < 0.2 or churn_prob > 0.8:
+    
+    # High confidence: still far from 0.5, but not extreme
+    elif (0.1 <= churn_prob < 0.2) or (0.8 < churn_prob <= 0.9):
         return "High"
-    elif churn_prob < 0.3 or churn_prob > 0.7:
+    
+    # Moderate confidence: moderately far from 0.5
+    elif (0.2 <= churn_prob < 0.3) or (0.7 < churn_prob <= 0.8):
         return "Moderate"
+    
+    # Low confidence: close to uncertainty zone
     else:
         return "Low"
 
@@ -194,9 +204,10 @@ async def predict_customer(customer: CustomerData):
         estimated_clv = clv_model.predict(input_data)[0]
         
         # Determine risk level
-        if churn_prob > 0.4:
+        # """WE SHOULD USE "0.3" AS OUR THRESHOLD TO ALIGN WITH OUR CLASSIFICATION MODEL"""
+        if churn_prob > 0.3:
             risk_level = "High"
-        elif churn_prob > 0.2:
+        elif churn_prob > 0.15:
             risk_level = "Medium"
         else:
             risk_level = "Low"
