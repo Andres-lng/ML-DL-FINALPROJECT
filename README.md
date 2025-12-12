@@ -137,16 +137,17 @@ FinalProject_ANLT202.ipynb
 # 🔁 7. How to Reproduce Results
 
 ### Classification  
-- Run preprocessing  
-- Apply SMOTE  
-- Train Tuned RF / Deep Learning  
+- Run full preprocessing pipeline 
+- Apply SMOTE to balance the churn classes 
+- Train Tuned RF (RandomizedSearchCV, scoring = F1) / Deep Learning (class weights + threshold = 0.3)
 Expected recall:
 ```
 ≈ 0.63 (Deep Learning)
 ```
+- Note: Results are reproducible when using fixed random seeds (e.g., random_state=42 and TensorFlow seeds).
 
 ### Regression  
-- Run preprocessing  
+- Run preprocessing (same as classification, but without SMOTE)
 - Train Linear Regression  
 Expected R²:
 ```
