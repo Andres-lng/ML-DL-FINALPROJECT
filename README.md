@@ -112,7 +112,7 @@ cd ML-DL-FINALPROJECT
 
 ### Step 2 — Virtual Environment
 ```bash
-python -m venv .venv
+python -3.11 -m venv .venv
 source .venv/bin/activate        # macOS/Linux
 .\.venv\Scriptsctivate         # Windows
 ```
