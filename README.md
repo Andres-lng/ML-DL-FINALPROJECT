@@ -114,7 +114,7 @@ cd ML-DL-FINALPROJECT
 ```bash
 python -3.11 -m venv .venv
 source .venv/bin/activate        # macOS/Linux
-.\.venv\Scriptsctivate         # Windows
+.\.venv\Scripts/activate         # Windows
 ```
 
 ### Step 3 — Install Dependencies
